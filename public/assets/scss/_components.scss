@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 09-oct-2020, 14:15:22
+    Author     : danix
+*/
+
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.jumbotron{
+    background-color:$primary;
+}
+
+.row{
+    background-color:$secondary; 
+    border: solid $border-color 5px;
+    @include bkgd-gradient($secondary,$yellow); 
+}
