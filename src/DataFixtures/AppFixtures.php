@@ -26,7 +26,7 @@ class AppFixtures extends Fixture
             $product = new Productos();
             $product -> setName($productFaker->name);
             $product -> setDescription($productFaker->sentence);
-            $product ->setUrlPicture($productFaker->imageUrl($width=640, $height=480));
+            $product ->setUrlPicture($productFaker->imageUrl($width=400, $height=200));
             $product ->setPrice($productFaker->numberBetween(120,685));
             
             $product ->setMembers($members);

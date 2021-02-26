@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="container">
+       <div class="row">
+           <div class="col-10 mx-auto">
+               <div class="card">
+                   <h5 class="card-header">Producto</h5>
+                   <div class="card-body">
+
+                       <table class="table-borderless table-responsive">
+                           <tr scope="row" class="pb-2">
+                               <td ><h6 class="text-muted">Nombre</h6></td>
+                               <td>{{ producto.name }}</td>
+                           </tr>
+                           <tr scope="row" class="pb-2">
+                               <td><h6 class="text-muted">Descripcion</h6></td>
+                               <td>{{ producto.description }}</td>
+                           </tr>
+                           <tr scope="row" class="pb-2">
+                               <td><h6 class="text-muted">Imagen</h6></td>
+                               <td> <img class="card-img-top rounded mx-auto d-block avatar" src='{{ producto.urlPicture }}'></td>
+                           </tr>
+                           <tr scope="row" class="pb-2">
+                               <td><h6 class="text-muted">Precio</h6></td>
+                               <td>{{ producto.price }}</td>
+                           </tr>
+                       </table>
+                   </div>
+                           
+                   <ul class="list-inline-group mt-5 card-footer mb-0">
+                               <li class="list-inline-item">
+                                   <a  class="btn btn-outline-secondary" href="{{ path('productos_edit', { 'id': producto.id }) }}">Editar</a>
+                               </li>
+                               <li class="list-inline-item">
+                                   {{ form_start(delete_form) }}
+                                   <input   class="btn btn-outline-danger" type="submit" value="Delete">
+                                   {{ form_end(delete_form) }}
+                               </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+   </div>
+{% endblock %}

@@ -2,10 +2,9 @@
 
 {% block body %}
 
-    <div class="container-fluid alert alert-dark alert-dismissible fade show pt-0 pb-2"  role="alert" >
-        <div class="row">
-           <div class="col-10 mx-auto">
-               <h2 class="alert-heading display-2">Bienvenid@ a MarTech</h2>
+    <div class="jumbotron jumbotron-fluid"  role="alert" >
+        <div id="bienvenida" class="container">
+            <h1 class='display-3'>Bienvenid@ a MarTech</h1>
                <hr>
                <p class="mb-0 lead">MarTech es una empresa de tecnología informática fundada en Octubre del 2001.
 Nuestro objetivo es el de satisfacer las necesidades que el cambiante y competitivo mercado demanda en la actualidad, aportando soluciones que no se circunscriban únicamente al desarrollo del software, sino que con un enfoque más amplio, permitan a nuestros clientes optimizar su gestión, clave de la competitividad.</p>
@@ -19,28 +18,31 @@ Nuestro objetivo es el de satisfacer las necesidades que el cambiante y competit
     <div class="container-fluid">
         <div class="row">
             <div class="col-10 mx-auto">
-                <h6 class="lead">A continuación ofrecemos el catalogo de ordenadores.</h6>
+                <h3 class='display-4'>Catalogo de Ordenadores</h3>
             </div>
         </div>
+        
         <div class="row bg-white">
-            <div class="col-8 mx-auto ">
+            <div class="col-md-12">
+                <div class ="row">
                 {% for producto in productos %}
-                    <div class="card">
-                       <img class="my-auto card-img" style="width:60px" src="{{ producto.getImage() }}" alt="Image Producto">
-                        <div class="media-body">
-                            <div class="mx-4 d-flex justify-content-between ">
-                                    <h4 class="p-0"> {{ offer.getVPosition() }}
-                                        <small ><i > {{ offer.getDActivationDate() | date('d-m-Y') }}</i></small>
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="card mb-2">
+                       <img src="{{ producto.getUrlPicture()}}" alt="Image Producto">
+                        <div class="card-body">
+                            <h4 class="d-flex justify-content-end">
+                                    <h4 class="p-0"> {{ producto.getPrice() }}
+                                        <h4> {{ producto.getName() }}</a>
                                     </h4>
-                                    <a href="{{ path('offers_show', {'id': producto.getId()}) }}" class="btn btn-outline-primary">More details...</a>
-                            </div>
                             <div class="px-2">
-                                <p class="card-body text-muted mb-0"> {{ producto.getDescription()|raw }} </p>
-                            </div>
+                                <p class="card-text"> {{ producto.getDescription()|raw }} </p>
+                            </div>        
+                              <a href="{{ path('productos_show', {'id': producto.getId()}) }}" class="btn btn-primary">Ver mas...</a>
+                        </div>
                         </div>
                     </div>
-                    <hr/>
                 {% endfor %}
+                </div>
             </div>
         </div>
     </div>
